@@ -4,6 +4,10 @@ After years away from Skyrim and Requiem, I had a hankering to play again, but a
 
 Here I record the steps I've taken and the victories I've had, so that those who come after me don't have to repeat all the mistakes I've made. Since the person most likely to need this will be myself in two years time, this is pretty much a love letter to my future-self.
 
+**Update with Wine 2.13**
+
+The below guide was written before wine 2.x was released. In August 2017 I tested Skyrim under Wine 2.13, and discovered the sound issues were resolved provided one set an appropriate pulseaudio environment varialble: `PULSE_LATENCY_MSEC=50 playonlinux`. This has given me perfect sound, and eliminated the need for separate wine versions for installation and play.
+
 **Requiem under Linux with wine: What's I have working:**
 
 - Skyrim with all the DLC.
