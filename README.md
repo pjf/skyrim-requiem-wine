@@ -13,6 +13,7 @@ The below guide was written before wine 2.x was released. In August 2017 I teste
 - Skyrim with all the DLC.
 - ModOrganizer.
 - Requiem, including the Reqtificator and all dependencies.
+- TES5Edit v3.1.3
 - Numerous various mods and enhancements (not documented here).
 
 Everything is stable, solid, and feature complete, with only a couple of exceptions that I'll detail below. The only thing I couldn't get running was the graphical version of LOOT.
@@ -38,6 +39,10 @@ If using the built-in LOOT-based sort tool (which *will* screw up the order of R
 I almost certainly had to install extra libraries and tricks to get ModOrganizer working, scroll to the end to see what my set-up looks like.
 
 I never got ModOrganizer to handle `nxp://` links, but downloading into MO's download folder worked great, and it talks to Nexus just fine.
+
+**TES5Edit**
+
+While TES5Edit isn't required for Requiem, it *is* required for some derived mods like Ultimate Skyrim. There are no special instructions for getting TES5Edit running. Just add it to the ModOrganiser run menu like you would on any other system. Everything worked out of the box with Wine 2.13.
 
 **Reqtificator**
 
