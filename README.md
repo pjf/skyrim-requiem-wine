@@ -6,13 +6,7 @@ Here I record the steps I've taken and the victories I've had, so that those who
 
 While this was originally a Requiem guide, I've expanded it to also cover BelmontBoy's [Ultimate Skyrim](http://ultimateskyrim.bitballoon.com).
 
-**Update with Wine 2.13**
-
-The below guide was originally written before wine 2.x was released. In August 2017 I tested Skyrim under Wine 2.13, and discovered the sound issues were resolved provided one set an appropriate pulseaudio environment varialble: `PULSE_LATENCY_MSEC=50 playonlinux`. This has given me perfect sound, and eliminated the need for separate wine versions for installation and play.
-
-I strongly recommend using Wine 2.13 (or above) for running everything.
-
-**Requiem under Linux with wine: What's I have working:**
+**Skyrim under Linux with wine: What's I have working:**
 
 - Skyrim with all the DLC.
 - ModOrganizer.
@@ -21,9 +15,12 @@ I strongly recommend using Wine 2.13 (or above) for running everything.
 - FNIS
 - RealShelter
 - Automatic Variants
+- Ultimate Skyrim
 - Numerous various mods and enhancements (not documented here).
 
 Everything is stable, solid, and feature complete, with only a couple of exceptions that I'll detail below.
+
+I've not tried to get ENB, DynDOLOD, or other tools running. I've heard others have had success with them, but I have no experience to share here.
 
 **Vorgen's Guide**
 
@@ -33,7 +30,9 @@ If you haven't found it, /u/Vorgen's [guide](https://www.reddit.com/r/skyrimrequ
 
 I installed Skyrim using PlayOnLinux as my base. PlayOnLinux provides a solid Skyrim install, but disables a number of libraries (like Dwrite) which can make everything else harder later on, but it's how I started, and how I suspect many who will find this post will have started.
 
-Skyrim would have sound issues under Wine 1.9.x, and would work perfectly out of the box with Wine 1.7.45. These days I use Wine 2.13 for everything, with the `PULSE_LATENCY_MSEC=50 playonlinux` environment variable as mentioned above.
+If you just want to play Vanilla skyrim, then it works perfectly out of the box with Wine 1.7.45. However **I suggest using Wine 2.13**, as older versions of Wine can have difficulty running some of the programs needed for a modded install.
+
+If you have choppy sound issues under Wine 2.x, try starting PoL with `PULSE_LATENCY_MSEC=50 playonlinux`. This environment variable fixed all the sound issues for me.
 
 The only thing Skyrim seems to screw up on is that it leaves a hanging process around after exiting to desktop. Having a way to switch desktops will allow you to run a `killall TESV.exe` to remove the hanging process.
 
@@ -41,7 +40,7 @@ The only thing Skyrim seems to screw up on is that it leaves a hanging process a
 
 I'm *really* impressed by ModOrganizer, and was delighted to get it running under Linux. It has a few graphical hiccups when doing things like dragging mods around on the build order, but nothing that really affects functionality.
 
-If using the built-in LOOT-based sort tool (which *will* screw up the order of Requiem, but is useful in non-requiem games) then ModOrganizer will run the sort, eventually tell you "Done", and then leave the interface locked. Closing and re-opening ModOrganizer will start it up with the re-sorted list.
+If using the built-in LOOT-based sort tool (which *will* screw up the order of Requiem, but can be useful in non-requiem games) then ModOrganizer will run the sort, tell you it's "Done", and then leave the interface locked. Closing and re-opening ModOrganizer will start it up with the re-sorted list.
 
 I almost certainly had to install extra libraries and tricks to get ModOrganizer working, scroll to the end to see what my set-up looks like.
 
@@ -53,25 +52,37 @@ While TES5Edit isn't required for Requiem, it *is* required for some derived mod
 
 **FNIS**
 
-I got FNIS working by:
+FNIS was one of the more challenging tools to get running. I eventually had success by:
 
+- Installing FNIS through ModOrganiser.
 - Opening a PlayOnLinux shell
 - Running `winetricks dotnet40`
-- Copying the contents of the FNIS `Data/tools` directory from the downloaded archive into my Skyrim `Data` directory (ie, not through ModOrganiser)
-- Adding the FNIS generator from this location to ModOrganiser.
+- Copying the contents of the FNIS `Data/tools` directory from the downloaded archive into my Skyrim `Data` directory. `Data/tools` now exists both on the real filesystem, as well as inside MO.
+- Adding `GenerateFNISforUsers.exe` from the real filesystem to ModOrganiser.
 - Running FNIS through MO like any other tool.
 
-I still have FNIS installed through MO (so we have the `FNIS.esp` file, etc), but was consistently getting a `ERROR(5): File not found` when I didn't copy the tools into the real folder as mentioned above.
+Having FNIS installed through MO means youg et `FNIS.esp` and other files, and can disable FNIS on profiles you don't want it. My reason for installing the tools on the real filesystem is that I would receive an `ERROR(5): File not found` when just running FNIS through MO on an otherwise clean Skyrim install.
+
+FNIS would claim it couldn't find a legal Skyrim install, even though I'd purchased and installed it via Steam, and have previously run the vanilla game. This appears to just be a warning, and can be safely ignored.
 
 [This post](https://www.reddit.com/r/wine_gaming/comments/4sdgn0/skyrim_fnis_through_mod_organizer/) is what allowed me to finally solve my FNIS issues.
 
-FNIS would fail for me on the second run. Removing all its generated ('overwrite') files and running it afresh when working with new mods resolved this issue for me.
+Despite getting FNIS running, it can be a little tempremental. FNIS would sometimes fail on anything but the first run. Removing all its generated ('overwrite') files and running it afresh when working with new mods consistently solved this issue for me.
 
 Rarely when FNIS would start there would be no text visible. Exiting FNIS (and choosing 'Cancel' if the shortcut dialog box appeared) and restarting it would solve this for me. (Sometimes a few restarts are required.)
 
 **RealShelter**
 
-RealShelter has a `TES5Edit` script which is normally run from a batch file, but this didn't work for me. Instead, I copied the contents of the `R.S.Patcher` directory into the `TES5Edit/Edit Scripts` directory. After starting TES5Edit and letting it load (which will take a while), select all your mods (click on `[00] skyrim.esm` in TES5Edit, then scroll down and shift-click on the last mod), then right-click, select "Apply Script", and select "RSPatcher" from the drop-down.
+RealShelter has a `TES5Edit` script which is normally run from a batch file, but this didn't work for me. To get this running, I:
+
+- Copied the contents of the `R.S.Patcher` directory into the `TES5Edit/Edit Scripts` directory.
+- Started TES5Edit through ModOrganiser.
+- Made a cup of tea while it loaded all the assets.
+- Selected all mods by clicking on `[00] skyrim.esm` then scrolling down and shift-clicking on the last mod
+- With all mods selected, right-click, select "Apply Script", and select "RSPatcher" from the drop-down.
+- Let the script run, and accept any pop-ups wanting to add masters.
+
+The same steps can be used for other TES5Edit scripts you may wish to run.
 
 **Reqtificator**
 
@@ -86,6 +97,8 @@ The command I use to run the Reqtificator on my system, as you'd enter them into
 
 Obviously replace `\path\to\...` with the relevant paths on your system.
 
+With this set-up, the reqtificator and other SkyProc patchers run reliably on my system.
+
 **Automatic Variants**
 
 Once I figured out how to get the Reqtificator running, AV was a dream:
@@ -99,11 +112,15 @@ Again, replace `\path\to\...` with the relevant path for your system.
 
 Skyrim requires Steam to be already started, and I've found that letting ModOrganizer start steam before running skse was giving me grief, so I've made my own PlayOnLinux shortcut on the same virtual drive to just start Steam first. I'm running steam with `-no-dwrite -no-cef-sandbox` which works around bugs in both the Dwrite library (which I've enabled for everything else) and the chromium rendering engine (which would result in no text disabled anywhere).
 
-Unfortunately `steamwebhelper.exe` doesn't want to run for me with my configuration, but I'm not browsing the store here, so I'm not particularly worried.
+`steamwebhelper.exe` isn't reliable with some combinations of Steam and wine, but unless you're planning to browse the store, it can be safely ignored.
 
 **Winetricks**
 
-I can't remember how many additional things I installed using, but it seemed like a few! Using PlayOnLinux to navigate to `Configure -> Misc -> Open a Shell` made things much easier for me as I practically live on the command-line. Getting `vcrun2015` was part of my efforts to try and get LOOT to run. If it turns out you need it, I found that winetricks would have trouble, but then nabbing the file out of `~/.cache/winetricks/vcrun2015` and running it directly under wine worked a treat. See the album below for a list of all the things I installed.
+I can't remember how many additional things I installed using, but it seemed like a few! Using PlayOnLinux to navigate to `Configure -> Misc -> Open a Shell` made things much easier for me as I practically live on the command-line.
+
+[Winetricks](https://github.com/Winetricks/winetricks) is invaluable for installing libraries, and is frequently updated. However in some cases it would hit snags. I found that if winetricks failed, I could sometimes just run the downloaded file directly from the `~/.cache/winetricks/` directory.
+
+See the album below for all the things I had installed.
 
 **Imgur Album**
 
