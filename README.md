@@ -6,7 +6,7 @@ Here I record the steps I've taken and the victories I've had, so that those who
 
 While this was originally a Requiem guide, I've expanded it to also cover BelmontBoy's [Ultimate Skyrim](http://ultimateskyrim.bitballoon.com).
 
-**Skyrim under Linux with wine: What's I have working:**
+**Skyrim under Linux with wine: What I have working:**
 
 - Skyrim with all the DLC.
 - ModOrganizer.
