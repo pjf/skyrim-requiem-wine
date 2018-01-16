@@ -6,7 +6,7 @@ Here I record the steps I've taken and the victories I've had, so that those who
 
 While this was originally a Requiem guide, I've expanded it to also cover BelmontBoy's [Ultimate Skyrim](http://ultimateskyrim.bitballoon.com).
 
-**Skyrim under Linux with wine: What I have working:**
+## Skyrim under Linux with wine: What I have working:
 
 - Skyrim with all the DLC.
 - ModOrganizer.
@@ -22,7 +22,7 @@ Everything is stable, solid, and feature complete, with only a couple of excepti
 
 I've not tried to get ENB, DynDOLOD, or other tools running. I've heard others have had success with them, but I have no experience to share here.
 
-**Vorgen's Guide**
+## Vorgen's Guide
 
 If you haven't found it, /u/Vorgen's [guide](https://www.reddit.com/r/skyrimrequiem/comments/4mm3gr/how_to_get_the_reqtificator_and_presumably_other/) was immensely useful to me getting everything running. You probably want to open it now.
 
@@ -36,7 +36,7 @@ If you have choppy sound issues under Wine 2.x, try starting PoL with `PULSE_LAT
 
 The only thing Skyrim seems to screw up on is that it leaves a hanging process around after exiting to desktop. Having a way to switch desktops will allow you to run a `killall TESV.exe` to remove the hanging process.
 
-**ModOrganizer**
+## ModOrganizer
 
 I'm *really* impressed by ModOrganizer, and was delighted to get it running under Linux. It has a few graphical hiccups when doing things like dragging mods around on the build order, but nothing that really affects functionality.
 
@@ -46,11 +46,11 @@ I almost certainly had to install extra libraries and tricks to get ModOrganizer
 
 I never got ModOrganizer to handle `nxp://` links, but downloading into MO's download folder worked great, and it talks to Nexus just fine.
 
-**TES5Edit**
+## TES5Edit
 
 While TES5Edit isn't required for Requiem, it *is* required for some derived mods like Ultimate Skyrim. There are no special instructions for getting TES5Edit running. Just add it to the ModOrganiser run menu like you would on any other system. Everything worked out of the box with Wine 2.13.
 
-**FNIS**
+## FNIS
 
 FNIS was one of the more challenging tools to get running. I eventually had success by:
 
@@ -71,7 +71,7 @@ Despite getting FNIS running, it can be a little tempremental. FNIS would someti
 
 Rarely when FNIS would start there would be no text visible. Exiting FNIS (and choosing 'Cancel' if the shortcut dialog box appeared) and restarting it would solve this for me. (Sometimes a few restarts are required.)
 
-**RealShelter**
+## RealShelter
 
 RealShelter has a `TES5Edit` script which is normally run from a batch file, but this didn't work for me. To get this running, I:
 
@@ -84,7 +84,7 @@ RealShelter has a `TES5Edit` script which is normally run from a batch file, but
 
 The same steps can be used for other TES5Edit scripts you may wish to run.
 
-**Reqtificator**
+## Reqtificator
 
 Getting the reqtificator running reliably was *really* hard. /u/vorgen's [guide](https://www.reddit.com/r/skyrimrequiem/comments/4mm3gr/how_to_get_the_reqtificator_and_presumably_other/) helped a lot by mentioning that Java 1.8.0u5 was apparently the only version to be stable under wine, and that's what I'm using. However I suspect modern wine releases will work with modern Java 1.8 runtimes when using the adjustments detailed below. My big advice is to grab the `.tar.gz` version of the java release rather than the installer, which I had trouble getting to run.
 
@@ -99,7 +99,7 @@ Obviously replace `\path\to\...` with the relevant paths on your system.
 
 With this set-up, the reqtificator and other SkyProc patchers run reliably on my system.
 
-**Automatic Variants**
+## Automatic Variants
 
 Once I figured out how to get the Reqtificator running, AV was a dream:
 
@@ -108,13 +108,13 @@ Once I figured out how to get the Reqtificator running, AV was a dream:
 
 Again, replace `\path\to\...` with the relevant path for your system.
 
-**Steam**
+## Steam
 
 Skyrim requires Steam to be already started, and I've found that letting ModOrganizer start steam before running skse was giving me grief, so I've made my own PlayOnLinux shortcut on the same virtual drive to just start Steam first. I'm running steam with `-no-dwrite -no-cef-sandbox` which works around bugs in both the Dwrite library (which I've enabled for everything else) and the chromium rendering engine (which would result in no text disabled anywhere).
 
 `steamwebhelper.exe` isn't reliable with some combinations of Steam and wine, but unless you're planning to browse the store, it can be safely ignored.
 
-**Winetricks**
+## Winetricks
 
 I can't remember how many additional things I installed using, but it seemed like a few! Using PlayOnLinux to navigate to `Configure -> Misc -> Open a Shell` made things much easier for me as I practically live on the command-line.
 
@@ -122,11 +122,11 @@ I can't remember how many additional things I installed using, but it seemed lik
 
 See the album below for all the things I had installed.
 
-**Imgur Album**
+## Imgur Album
 
 Here's [an album](http://imgur.com/gallery/b6UdD) with screenshots of various things I needed to configure, so if you don't want to read the wall of text above you can hopefully spot the one thing that will make your Requiem under Linux experience complete!
 
-**License**
+## License
 
 This entire guide is [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) pjf. You should feel to share, adapt, and modify this post under the terms of this license. That includes linking in sidebars, including in larger works, adding to other guides, correcting, publishing, redistributing, or otherwise using it to make the world a better place. No additional permission is necessary, and attribution can just be made to 'pjf'.
 
