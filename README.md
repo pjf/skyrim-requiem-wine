@@ -61,7 +61,7 @@ FNIS was one of the more challenging tools to get running. I eventually had succ
 - Adding `GenerateFNISforUsers.exe` from the real filesystem to ModOrganiser.
 - Running FNIS through MO like any other tool.
 
-Having FNIS installed through MO means youg et `FNIS.esp` and other files, and can disable FNIS on profiles you don't want it. My reason for installing the tools on the real filesystem is that I would receive an `ERROR(5): File not found` when just running FNIS through MO on an otherwise clean Skyrim install.
+Having FNIS installed through MO means you get `FNIS.esp` and other files, and can disable FNIS on profiles you don't want it. My reason for installing the tools on the real filesystem is that I would receive an `ERROR(5): File not found` when just running FNIS through MO on an otherwise clean Skyrim install.
 
 FNIS would claim it couldn't find a legal Skyrim install, even though I'd purchased and installed it via Steam, and have previously run the vanilla game. This appears to just be a warning, and can be safely ignored.
 
