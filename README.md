@@ -26,7 +26,7 @@ I've not tried to get DynDOLOD or other tools running. I've heard others have ha
 
 ## Vorgen's Guide
 
-If you haven't found it, /u/Vorgen's [guide](https://www.reddit.com/r/skyrimrequiem/comments/4mm3gr/how_to_get_the_reqtificator_and_presumably_other/) was immensely useful to me getting everything running. You probably want to open it now.
+If you haven't found it, /u/Vorgen's [guide](https://www.reddit.com/r/skyrimrequiem/comments/4mm3gr/how_to_get_the_reqtificator_and_presumably_other/) was immensely useful to me getting everything running. While this guide aims to be complete, you may also wish to check Vorgen's guide if you encounter troubles.
 
 ## Skyrim
 
@@ -41,6 +41,10 @@ The only thing Skyrim seems to screw up on is that it leaves a hanging process a
 ### Sticking Keys
 
 If you find that your movement keys in Skyrim are 'sticky', and your character keeps moving in a direction for a while, simply run `xset -r`. It turns off the key repeat which is the source of the problem. When you're done playing, `xset r` restores key autorepeat.
+
+### Performance
+
+If you want the best performance, then using wine-staging with CSMT is the way to go. I got a *significant* performance boost by using wine-staging 2.13, enabling CSMT under the "Staging" tag of winecfg, and adding an override for `nvapi` in the libraries tab, and then using the 'edit' button to change that to "disabled".
 
 ## ModOrganizer
 
@@ -149,6 +153,6 @@ Here's [an album](http://imgur.com/gallery/b6UdD) with screenshots of various th
 
 This entire guide is [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) pjf. You should feel to share, adapt, and modify this post under the terms of this license. That includes linking in sidebars, including in larger works, adding to other guides, correcting, publishing, redistributing, or otherwise using it to make the world a better place. No additional permission is necessary, and attribution can just be made to 'pjf'.
 
-This guide is [available on github](https://github.com/pjf/skyrim-requiem-wine). Patches and updates are very welcome, and I recommend checking out the github version as it tends to be the most up-to-date.
+This guide is [available on github](https://github.com/pjf/skyrim-requiem-wine). Patches and updates are *very* welcome, and I recommend checking out the github version as it tends to be the most up-to-date.
 
 Thanks for reading along, and may you visit Tamriel using Linux today!
