@@ -116,18 +116,18 @@ Skyrim requires Steam to be already started, and I've found that letting ModOrga
 
 `steamwebhelper.exe` isn't reliable with some combinations of Steam and wine, but unless you're planning to browse the store, it can be safely ignored.
 
-## Loot
+## LOOT
 
 Thanks to [a comment by wyrde](https://github.com/loot/loot/issues/610#issuecomment-275945928) I've successfully got LOOT v0.13.1 running from ModOrganizer. My set-up was:
 
-- Windows 7 emulation
 - Override `libcef` (native, builtin) and `dwrite` (native, builtin). I had to manually add `libcef`.
 - Start LOOT with `--no-sandbox` (may work okay without).
 - Wine 2.13
+- Windows XP emulation.
 
 LOOT may give an error when exiting, but it can still download and sort mod lists, so the error can be safely ignored.
 
-**Note that overriding `libcef` will cause steam to no longer be able to render the store.**
+*Note that overriding `libcef` may cause steam to no longer be able to render the store.*
 
 ## Winetricks
 
