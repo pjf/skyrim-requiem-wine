@@ -16,17 +16,19 @@ While this was originally a Requiem guide, I've expanded it to also cover Belmon
 - RealShelter
 - Automatic Variants
 - Ultimate Skyrim
+- LOOT
+- ENB (not documented here)
 - Numerous various mods and enhancements (not documented here).
 
 Everything is stable, solid, and feature complete, with only a couple of exceptions that I'll detail below.
 
-I've not tried to get ENB, DynDOLOD, or other tools running. I've heard others have had success with them, but I have no experience to share here.
+I've not tried to get DynDOLOD or other tools running. I've heard others have had success with them, but I have no experience to share here.
 
 ## Vorgen's Guide
 
 If you haven't found it, /u/Vorgen's [guide](https://www.reddit.com/r/skyrimrequiem/comments/4mm3gr/how_to_get_the_reqtificator_and_presumably_other/) was immensely useful to me getting everything running. You probably want to open it now.
 
-**Skyrim**
+## Skyrim
 
 I installed Skyrim using PlayOnLinux as my base. PlayOnLinux provides a solid Skyrim install, but disables a number of libraries (like Dwrite) which can make everything else harder later on, but it's how I started, and how I suspect many who will find this post will have started.
 
@@ -113,6 +115,17 @@ Again, replace `\path\to\...` with the relevant path for your system.
 Skyrim requires Steam to be already started, and I've found that letting ModOrganizer start steam before running skse was giving me grief, so I've made my own PlayOnLinux shortcut on the same virtual drive to just start Steam first. I'm running steam with `-no-dwrite -no-cef-sandbox` which works around bugs in both the Dwrite library (which I've enabled for everything else) and the chromium rendering engine (which would result in no text disabled anywhere).
 
 `steamwebhelper.exe` isn't reliable with some combinations of Steam and wine, but unless you're planning to browse the store, it can be safely ignored.
+
+## Loot
+
+Thanks to [a comment by wyrde](https://github.com/loot/loot/issues/610#issuecomment-275945928) I've successfully got LOOT v0.13.1 running from ModOrganizer. My set-up was:
+
+- Windows 7 emulation
+- Overwrite `libcef` (native, builtin) and `dwrite` (native, builtin). I had to manually add `libcef`.
+- Start LOOT with `--no-sandbox` (may work okay without).
+- Wine 2.13
+
+LOOT may give an error when exiting, but it can still download and sort mod lists, so the error can be safely ignored.
 
 ## Winetricks
 
