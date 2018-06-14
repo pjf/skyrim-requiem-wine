@@ -38,6 +38,10 @@ If you have choppy sound issues under Wine 2.x, try starting PoL with `PULSE_LAT
 
 The only thing Skyrim seems to screw up on is that it leaves a hanging process around after exiting to desktop. Having a way to switch desktops will allow you to run a `killall TESV.exe` to remove the hanging process.
 
+### Sticking Keys
+
+If you find that your movement keys in Skyrim are 'sticky', and your character keeps moving in a direction for a while, simply run `xset -r`. It turns off the key repeat which is the source of the problem. When you're done playing, `xset r` restores key autorepeat.
+
 ## ModOrganizer
 
 I'm *really* impressed by ModOrganizer, and was delighted to get it running under Linux. It has a few graphical hiccups when doing things like dragging mods around on the build order, but nothing that really affects functionality.
