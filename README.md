@@ -36,6 +36,8 @@ If you just want to play Vanilla skyrim, then it works perfectly out of the box 
 
 If you have choppy sound issues under Wine 2.x, try starting PoL with `PULSE_LATENCY_MSEC=50 playonlinux`. This environment variable fixed all the sound issues for me.
 
+If you are using wine 3.x and find there is no music or voices, run `winetricks xact` and then set a library override for `xaudio2_6` to `native, builtin`.
+
 The only thing Skyrim seems to screw up on is that it leaves a hanging process around after exiting to desktop. Having a way to switch desktops will allow you to run a `killall TESV.exe` to remove the hanging process.
 
 ### Sticking Keys
@@ -45,6 +47,8 @@ If you find that your movement keys in Skyrim are 'sticky', and your character k
 ### Performance
 
 If you want the best performance, then using wine-staging with CSMT is the way to go. I got a *significant* performance boost by using wine-staging 2.13, enabling CSMT under the "Staging" tag of winecfg, and adding an override for `nvapi` in the libraries tab, and then using the 'edit' button to change that to "disabled".
+
+More recent versions of wine 3.x have CSMT enabled by default.
 
 ## ModOrganizer
 
